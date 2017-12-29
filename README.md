@@ -4,7 +4,7 @@ Json
 
 A Simple wrapper of `json_decode()` and `json_encode()`.
 
-### Features
+## Features
 
 1. Provides the same interface with built-in functions, so you can replace your code easier.
     * Built-in function interface:
@@ -15,6 +15,11 @@ A Simple wrapper of `json_decode()` and `json_encode()`.
         ?int $depth = 512, 
         ?int $options = 0
       ): mixed
+      json_encode(
+        mixed $value, 
+        ?int $options = 0,
+        ?int $depth = 512 
+      ): string
       ```
     * This library interface:
       ```php
@@ -24,6 +29,11 @@ A Simple wrapper of `json_decode()` and `json_encode()`.
         ?int $depth = 512,
         ?int $options = 0
       ): mixed
+      \Suin\Json::encode(
+        mixed $value,
+        ?int $options = 0,
+        ?int $depth = 512
+      ): string
       ```
 1. Exception-based error handling.
     * Throws `DecodingException` when failed to decode JSON.
@@ -36,11 +46,25 @@ A Simple wrapper of `json_decode()` and `json_encode()`.
       $array1 = $decoder->decode($json1);
       $array2 = $decoder->decode($json2); // re-use it
       $array3 = $decoder->decode($json3); // re-use it
+      
+      // preconfigured encoder
+      $encoder = (new Encoder)->prettyPrint()->unescapeSlashes()->unescapeUnicode();
+      $json1 = $encoder->encode($value1);
+      $json2 = $encoder->encode($value2); // re-use it
+      $json3 = $encoder->encode($value3); // re-use it
       ```
 1. Immutable `Decoder` object.
     * As the `Decoder` object setting can not be changed once being instantiated, it is safer even in the case of sharing the object among some modules.
 
-#### Example usage
+## Installation via Composer
+
+``` bash
+$ composer require suin/json
+```
+
+## Example
+
+### Decoding JSON to values
 
 ```php
 <?php
@@ -89,25 +113,51 @@ try {
 // string(42) "{'Organization': 'PHP Documentation Team'}"
 ```
 
-To see more examples, visit [./example](./example) folder.
+### Encoding values to JSON
 
-#### Installation via Composer
-``` bash
-$ composer require suin/json
+```php
+<?php
+
+use Suin\Json;
+
+$value = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
+var_dump(Json::encode($value));
+// Output:
+// string(31) "{"a":1,"b":2,"c":3,"d":4,"e":5}"
+
+// Error handling example
+$invalidValue = NAN;
+try {
+    Json::encode($invalidValue);
+} catch (Json\EncodingException $e) {
+    var_dump($e->getMessage());
+    var_dump($e->getContext()->value());
+    var_dump($e->getContext()->options());
+}
+// Output:
+// string(57) "Failed to encode JSON: Inf and NaN cannot be JSON encoded"
+// float(NAN)
+// int(0)
 ```
 
-#### Running tests
+To see more examples, visit [./example](./example) folder.
+
+## Running tests
+
 ``` bash
 $ composer test
 ```
 
-#### License
+## License
+
 This library is licensed under the MIT license. Please see [LICENSE](LICENSE.md) for more details.
 
-#### Changelog
+## Changelog
+
 Please see [CHANGELOG](CHANGELOG.md) for more details.
 
 #### Contributing
+
 Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for more details.
 
 <!-- Badges -->
