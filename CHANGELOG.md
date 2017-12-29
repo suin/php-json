@@ -1,7 +1,6 @@
 # Change Log
 
-## [Unreleased](https://github.com/suin/php-json/tree/HEAD)
-
+## [1.0.0](https://github.com/suin/php-json/tree/1.0.0) (2017-12-29)
 **Implemented enhancements:**
 
 - Implement Decoder [\#1](https://github.com/suin/php-json/issues/1)
