@@ -1,0 +1,52 @@
+* text=auto eol=lf
+
+*.conf  eol=lf
+*.css   eol=lf
+*.dist  eol=lf
+*.html  eol=lf diff=html
+*.js    eol=lf
+*.json  eol=lf
+*.lock  eol=lf
+*.php   eol=lf diff=php
+*.sh    eol=lf
+*.sql   eol=lf
+*.xml   eol=lf
+*.yml   eol=lf
+
+*.docx  binary
+*.docx  binary
+*.dot   binary
+*.eot   binary
+*.gif   binary
+*.ico   binary
+*.jar   binary
+*.jpg   binary
+*.otf   binary
+*.phar  binary
+*.png   binary
+*.ttf   binary
+*.ttf   binary
+*.woff  binary
+*.xls   binary
+*.zip   binary
+
+.dockerignore export-ignore
+.envrc export-ignore
+.gitattributes export-ignore
+.github/ export-ignore
+.gitignore export-ignore
+.gitmessage export-ignore
+.travis.yml export-ignore
+CHANGELOG.md export-ignore
+codeception.yml export-ignore
+docker-compose.yml export-ignore
+docker/ export-ignore
+docs/ export-ignore
+example/ export-ignore
+LICENSE.md export-ignore
+phpunit.xml export-ignore
+README.md export-ignore
+tests/ export-ignore
+
+* linguist-vendored
+/src/**/* linguist-vendored=false

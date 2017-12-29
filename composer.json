@@ -1,0 +1,47 @@
+{
+  "name": "suin/json",
+  "description": "A Simple wrapper of json_decode() and json_encode(). This provides object-oriented interface and exception-based error handing.",
+  "keywords": [
+    "encoder",
+    "decoder",
+    "json",
+    "wrapper",
+    "json_decode",
+    "json_encode",
+    "exceptions"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "suin",
+      "email": "suinyeze@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.5",
+    "suin/livexample": "^1.0"
+  },
+  "autoload": {
+    "classmap": [
+      "src/Json.php"
+    ],
+    "psr-4": {
+      "Suin\\Json\\": "src/Json/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Suin\\Json\\": "tests/Json/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit --colors=always",
+    "test-in-ci": "phpunit --coverage-text",
+    "example": "php -d auto_prepend_file=vendor/autoload.php -d xdebug.overload_var_dump=0",
+    "configure-commit-template": "git config --add commit.template .gitmessage"
+  }
+}
