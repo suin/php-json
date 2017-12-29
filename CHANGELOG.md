@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.1.0](https://github.com/suin/php-json/tree/1.1.0) (2017-12-29)
+[Full Changelog](https://github.com/suin/php-json/compare/1.0.0...1.1.0)
+
+**Implemented enhancements:**
+
+- Implement Encoder [\#2](https://github.com/suin/php-json/issues/2)
+
 ## [1.0.0](https://github.com/suin/php-json/tree/1.0.0) (2017-12-29)
 **Implemented enhancements:**
 
