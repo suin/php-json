@@ -1,6 +1,6 @@
 Json
 ================
-[![travis-ci-badge]][travis-ci] [![packagist-dt-badge]][packagist]
+[![travis-ci-badge]][travis-ci] [![packagist-dt-badge]][packagist] [![license-badge]][license] [![release-version-badge]][packagist] ![php-version-badge]
 
 A Simple wrapper of `json_decode()` and `json_encode()`.
 
@@ -142,21 +142,11 @@ try {
 
 To see more examples, visit [./example](./example) folder.
 
-## Running tests
-
-``` bash
-$ composer test
-```
-
-## License
-
-This library is licensed under the MIT license. Please see [LICENSE](LICENSE.md) for more details.
-
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more details.
 
-#### Contributing
+## Contributing
 
 Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for more details.
 
@@ -165,3 +155,7 @@ Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for more details.
 [travis-ci-badge]: https://img.shields.io/travis/suin/php-json.svg?style=flat-square
 [packagist]: https://packagist.org/packages/suin/json
 [packagist-dt-badge]: https://img.shields.io/packagist/dt/suin/json.svg?style=flat-square
+[license]: LICENSE.md
+[license-badge]: https://img.shields.io/github/license/suin/php-json.svg?style=flat-square
+[php-version-badge]: https://img.shields.io/packagist/php-v/suin/json.svg?style=flat-square
+[release-version-badge]: https://img.shields.io/packagist/v/suin/json.svg?style=flat-square&label=release
