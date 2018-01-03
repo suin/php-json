@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.1.1](https://github.com/suin/php-json/tree/1.1.1) (2018-01-03)
+[Full Changelog](https://github.com/suin/php-json/compare/1.1.0...1.1.1)
+
+**Closed issues:**
+
+- Standardize the coding style with PHP-CS-Fixer. [\#3](https://github.com/suin/php-json/issues/3)
+
 ## [1.1.0](https://github.com/suin/php-json/tree/1.1.0) (2017-12-29)
 [Full Changelog](https://github.com/suin/php-json/compare/1.0.0...1.1.0)
 
