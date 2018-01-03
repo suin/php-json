@@ -18,7 +18,6 @@ cache:
     - $HOME/.composer/cache
 
 before_script:
-  - phpenv config-rm xdebug.ini # Rapid test executing
   - travis_retry composer self-update
   - travis_retry composer global require hirak/prestissimo # Rapid composer installation
   - travis_retry composer install --no-interaction
