@@ -23,4 +23,5 @@ before_script:
   - travis_retry composer install --no-interaction
 
 script:
+  - composer format-preview
   - composer test-in-ci

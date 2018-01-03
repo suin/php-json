@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Json;
@@ -16,19 +17,17 @@ final class DecodingException extends \RuntimeException
      * @param string          $message
      * @param int             $code
      * @param DecodingContext $context
-     * @param Throwable|null  $previous
+     * @param null|Throwable  $previous
      */
     public function __construct(
-        $message = "",
-        $code = 0,
+        $message,
+        $code,
         DecodingContext $context,
         Throwable $previous = null
-    )
-    {
+    ) {
         parent::__construct($message, $code, $previous);
         $this->context = $context;
     }
-
 
     /**
      * @param int             $errorCode
@@ -40,10 +39,9 @@ final class DecodingException extends \RuntimeException
         int $errorCode,
         string $errorMessage,
         DecodingContext $context
-    )
-    {
+    ) {
         return new self(
-            "Failed to decode JSON: $errorMessage",
+            "Failed to decode JSON: ${errorMessage}",
             $errorCode,
             $context
         );

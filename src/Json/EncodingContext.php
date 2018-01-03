@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Json;
@@ -29,8 +30,7 @@ final class EncodingContext
         $value,
         int $options,
         int $depth
-    )
-    {
+    ) {
         $this->value = $value;
         $this->options = $options;
         $this->depth = $depth;

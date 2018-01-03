@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Json;
@@ -14,10 +15,10 @@ class DecodingExceptionTest extends TestCase
      * @param string          $errorMessage
      * @dataProvider dataForTestExceptions
      */
-    public function testJsonClass(DecodingContext $context, int $errorCode, string $errorMessage)
+    public function testJsonClass(DecodingContext $context, int $errorCode, string $errorMessage): void
     {
         $this->expectDecodingException(
-            function () use ($context) {
+            function () use ($context): void {
                 Json::decode(
                     $context->json(),
                     $context->assoc(),
@@ -37,10 +38,10 @@ class DecodingExceptionTest extends TestCase
      * @param string          $errorMessage
      * @dataProvider dataForTestExceptions
      */
-    public function testDecoderClass(DecodingContext $context, int $errorCode, string $errorMessage)
+    public function testDecoderClass(DecodingContext $context, int $errorCode, string $errorMessage): void
     {
         $this->expectDecodingException(
-            function () use ($context) {
+            function () use ($context): void {
                 $decoder = new Decoder(
                     $context->assoc(),
                     $context->depth(),
@@ -52,29 +53,6 @@ class DecodingExceptionTest extends TestCase
             $errorCode,
             $errorMessage
         );
-    }
-
-    /**
-     * @param callable        $errorCausingDecoder
-     * @param DecodingContext $context
-     * @param int             $errorCode
-     * @param string          $errorMessage
-     */
-    private function expectDecodingException(
-        callable $errorCausingDecoder,
-        DecodingContext $context,
-        int $errorCode,
-        string $errorMessage
-    )
-    {
-        try {
-            $errorCausingDecoder();
-            $this->fail('Exception expected');
-        } catch (DecodingException $e) {
-            $this->assertSame($errorCode, $e->getCode());
-            $this->assertSame("Failed to decode JSON: $errorMessage", $e->getMessage());
-            $this->assertEquals($context, $e->getContext());
-        }
     }
 
     /**
@@ -112,5 +90,27 @@ class DecodingExceptionTest extends TestCase
                 'Malformed UTF-8 characters, possibly incorrectly encoded',
             ],
         ];
+    }
+
+    /**
+     * @param callable        $errorCausingDecoder
+     * @param DecodingContext $context
+     * @param int             $errorCode
+     * @param string          $errorMessage
+     */
+    private function expectDecodingException(
+        callable $errorCausingDecoder,
+        DecodingContext $context,
+        int $errorCode,
+        string $errorMessage
+    ): void {
+        try {
+            $errorCausingDecoder();
+            $this->fail('Exception expected');
+        } catch (DecodingException $e) {
+            $this->assertSame($errorCode, $e->getCode());
+            $this->assertSame("Failed to decode JSON: ${errorMessage}", $e->getMessage());
+            $this->assertEquals($context, $e->getContext());
+        }
     }
 }

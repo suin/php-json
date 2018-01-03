@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Json;
@@ -18,10 +19,9 @@ class EncodingExceptionTest extends TestCase
         EncodingContext $context,
         int $errorCode,
         string $errorMessage
-    )
-    {
+    ): void {
         $this->expectEncodingException(
-            function () use ($context) {
+            function () use ($context): void {
                 Json::encode(
                     $context->value(),
                     $context->options(),
@@ -44,10 +44,9 @@ class EncodingExceptionTest extends TestCase
         EncodingContext $context,
         int $errorCode,
         string $errorMessage
-    )
-    {
+    ): void {
         $this->expectEncodingException(
-            function () use ($context) {
+            function () use ($context): void {
                 $encoder = new Encoder(
                     $context->options(),
                     $context->depth()
@@ -92,14 +91,13 @@ class EncodingExceptionTest extends TestCase
         EncodingContext $context,
         int $errorCode,
         string $errorMessage
-    )
-    {
+    ): void {
         try {
             $errorCausingEncoder();
             $this->fail('Exception expected');
         } catch (EncodingException $e) {
             $this->assertSame($errorCode, $e->getCode());
-            $this->assertSame("Failed to encode JSON: $errorMessage", $e->getMessage());
+            $this->assertSame("Failed to encode JSON: ${errorMessage}", $e->getMessage());
             $this->assertEquals($context, $e->getContext(), null, 0.0, 10);
         }
     }

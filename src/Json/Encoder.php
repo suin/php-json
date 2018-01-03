@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Json;
@@ -6,27 +7,27 @@ namespace Suin\Json;
 final class Encoder
 {
     private const OPTIONS = 0;
+
     private const DEPTH = 512;
 
     /**
-     * @var int|null
+     * @var null|int
      */
     private $options;
 
     /**
-     * @var int|null
+     * @var null|int
      */
     private $depth;
 
     /**
-     * @param int|null $options
-     * @param int|null $depth
+     * @param null|int $options
+     * @param null|int $depth
      */
     public function __construct(
         ?int $options = null,
         ?int $depth = null
-    )
-    {
+    ) {
         $this->options = $options ?? self::OPTIONS;
         $this->depth = $depth ?? self::DEPTH;
     }
@@ -87,6 +88,7 @@ final class Encoder
     {
         $json = json_encode($value, $this->options, $this->depth);
         $error = json_last_error();
+
         if ($error !== JSON_ERROR_NONE) {
             throw EncodingException::create(
                 $error,
@@ -124,7 +126,7 @@ final class Encoder
     private function copy(string $name, $value): self
     {
         $copy = clone $this;
-        $copy->$name = $value;
+        $copy->{$name} = $value;
         return $copy;
     }
 }
