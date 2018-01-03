@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 use Suin\Json;
 
 $json = '{"a":1,"b":2,"c":3,"d":4,"e":5}';
@@ -33,6 +34,7 @@ var_dump(Json::decode($json, true));
 
 // Error handling example
 $json = "{'Organization': 'PHP Documentation Team'}";
+
 try {
     Json::decode($json);
 } catch (Json\DecodingException $e) {

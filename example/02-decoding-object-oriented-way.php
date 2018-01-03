@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 use Suin\Json\Decoder;
 
 $decoder = new Decoder();

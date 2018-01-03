@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Json;
@@ -16,19 +17,17 @@ final class EncodingException extends \RuntimeException
      * @param string          $message
      * @param int             $code
      * @param EncodingContext $context
-     * @param Throwable|null  $previous
+     * @param null|Throwable  $previous
      */
     public function __construct(
-        $message = "",
-        $code = 0,
+        $message,
+        $code,
         EncodingContext $context,
         Throwable $previous = null
-    )
-    {
+    ) {
         parent::__construct($message, $code, $previous);
         $this->context = $context;
     }
-
 
     /**
      * @param int             $errorCode
@@ -40,10 +39,9 @@ final class EncodingException extends \RuntimeException
         int $errorCode,
         string $errorMessage,
         EncodingContext $context
-    )
-    {
+    ) {
         return new self(
-            "Failed to encode JSON: $errorMessage",
+            "Failed to encode JSON: ${errorMessage}",
             $errorCode,
             $context
         );

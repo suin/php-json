@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Json;
@@ -10,7 +11,7 @@ class DecoderTest extends TestCase
     /**
      * Default decoder prefers returning object than array.
      */
-    public function testDefaultDecoderPrefersObject()
+    public function testDefaultDecoderPrefersObject(): void
     {
         $decoder = new Decoder();
         $value = $decoder->decode('{"a":"b"}');
@@ -20,7 +21,7 @@ class DecoderTest extends TestCase
     /**
      * Decoder is immutable object.
      */
-    public function testImmutability()
+    public function testImmutability(): void
     {
         $decoder1 = new Decoder();
         $decoder2 = $decoder1->preferArray();
@@ -31,7 +32,7 @@ class DecoderTest extends TestCase
         $this->assertEquals($decoder2, $decoder3);
     }
 
-    public function testChangeReturningType()
+    public function testChangeReturningType(): void
     {
         $json = '{"a":1}';
 

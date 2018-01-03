@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Json;
@@ -6,7 +7,9 @@ namespace Suin\Json;
 final class Decoder
 {
     private const ASSOC = false;
+
     private const DEPTH = 512;
+
     private const OPTIONS = 0;
 
     /**
@@ -25,16 +28,15 @@ final class Decoder
     private $options;
 
     /**
-     * @param bool|null $assoc
-     * @param int|null  $depth
-     * @param int|null  $options
+     * @param null|bool $assoc
+     * @param null|int  $depth
+     * @param null|int  $options
      */
     public function __construct(
         ?bool $assoc = null,
         ?int $depth = null,
         ?int $options = null
-    )
-    {
+    ) {
         $this->assoc = $assoc ?? self::ASSOC;
         $this->depth = $depth ?? self::DEPTH;
         $this->options = $options ?? self::OPTIONS;
@@ -67,13 +69,14 @@ final class Decoder
 
     /**
      * @param string $json
-     * @return mixed
      * @throws DecodingException
+     * @return mixed
      */
     public function decode(string $json)
     {
         $value = json_decode($json, $this->assoc, $this->depth, $this->options);
         $error = json_last_error();
+
         if ($error !== JSON_ERROR_NONE) {
             throw DecodingException::create(
                 $error,
@@ -92,7 +95,7 @@ final class Decoder
     private function copy(string $name, $value): self
     {
         $copy = clone $this;
-        $copy->$name = $value;
+        $copy->{$name} = $value;
         return $copy;
     }
 }

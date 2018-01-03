@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Suin\Json;
@@ -36,8 +37,7 @@ final class DecodingContext
         bool $assoc,
         int $depth,
         int $options
-    )
-    {
+    ) {
         $this->json = $json;
         $this->assoc = $assoc;
         $this->depth = $depth;
