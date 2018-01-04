@@ -28,6 +28,9 @@
     "suin/php-cs-fixer-rules": "^1.0"
   },
   "autoload": {
+    "files": [
+      "src/functions.php"
+    ],
     "classmap": [
       "src/Json.php"
     ],

@@ -74,7 +74,7 @@ final class Decoder
      */
     public function decode(string $json)
     {
-        $value = json_decode($json, $this->assoc, $this->depth, $this->options);
+        $value = \json_decode($json, $this->assoc, $this->depth, $this->options);
         $error = json_last_error();
 
         if ($error !== JSON_ERROR_NONE) {
