@@ -45,7 +45,7 @@
   },
   "scripts": {
     "test": "phpunit --colors=always",
-    "test-in-ci": "phpunit --coverage-text",
+    "test-in-ci": "phpunit --coverage-text --coverage-clover clover.xml",
     "format": "php-cs-fixer fix --ansi",
     "format-preview": "php-cs-fixer fix --ansi --dry-run --diff --diff-format=udiff --verbose",
     "example": "php -d auto_prepend_file=vendor/autoload.php -d xdebug.overload_var_dump=0",

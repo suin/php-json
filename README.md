@@ -1,6 +1,6 @@
 Json
 ================
-[![travis-ci-badge]][travis-ci] [![packagist-dt-badge]][packagist] [![license-badge]][license] [![release-version-badge]][packagist] ![php-version-badge]
+[![travis-ci-badge]][travis-ci] [![packagist-dt-badge]][packagist] [![license-badge]][license] [![release-version-badge]][packagist] [![code-climate-maintainability-badge]][code-climate] [![code-climate-test-coverage-badge]][code-climate] ![php-version-badge]
 
 Just a simple wrapper of `json_decode()` and `json_encode()`, but provides better interfaces: exception-based error handling and object oriented APIs.
 
@@ -184,3 +184,6 @@ Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for more details.
 [license-badge]: https://img.shields.io/github/license/suin/php-json.svg?style=flat-square
 [php-version-badge]: https://img.shields.io/packagist/php-v/suin/json.svg?style=flat-square
 [release-version-badge]: https://img.shields.io/packagist/v/suin/json.svg?style=flat-square&label=release
+[code-climate]: https://codeclimate.com/github/suin/php-json
+[code-climate-maintainability-badge]: https://img.shields.io/codeclimate/maintainability/suin/php-json.svg?style=flat-square
+[code-climate-test-coverage-badge]: https://img.shields.io/codeclimate/c/suin/php-json.svg?style=flat-square
