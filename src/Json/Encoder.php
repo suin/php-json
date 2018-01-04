@@ -86,7 +86,7 @@ final class Encoder
      */
     public function encode($value): string
     {
-        $json = json_encode($value, $this->options, $this->depth);
+        $json = \json_encode($value, $this->options, $this->depth);
         $error = json_last_error();
 
         if ($error !== JSON_ERROR_NONE) {
