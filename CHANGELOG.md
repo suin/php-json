@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.2.0](https://github.com/suin/php-json/tree/1.2.0) (2018-01-04)
+[Full Changelog](https://github.com/suin/php-json/compare/1.1.1...1.2.0)
+
+**Implemented enhancements:**
+
+- Add json\_encode\(\) function and json\_decode\(\) function. [\#4](https://github.com/suin/php-json/issues/4)
+
 ## [1.1.1](https://github.com/suin/php-json/tree/1.1.1) (2018-01-03)
 [Full Changelog](https://github.com/suin/php-json/compare/1.1.0...1.1.1)
 
