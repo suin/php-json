@@ -41,7 +41,7 @@ final class EncodingException extends \RuntimeException
         EncodingContext $context
     ) {
         return new self(
-            "Failed to encode JSON: ${errorMessage}",
+            "Failed to encode JSON: {$errorMessage}",
             $errorCode,
             $context
         );

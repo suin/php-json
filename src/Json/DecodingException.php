@@ -41,7 +41,7 @@ final class DecodingException extends \RuntimeException
         DecodingContext $context
     ) {
         return new self(
-            "Failed to decode JSON: ${errorMessage}",
+            "Failed to decode JSON: {$errorMessage}",
             $errorCode,
             $context
         );
